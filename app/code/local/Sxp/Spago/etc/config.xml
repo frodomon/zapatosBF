@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- /*  * Magentoxp  *  * http://www.magentoxp.com * * email to support@magentoxp.com *  * @category   Sxp  * * @package    Sxp_Spago  ** @copyright  Copyright (c) 2011 Magentoxp (http://www.magentoxp.com) * */ -->
+<config>
+	<modules>
+		<sxp_spago>
+			<version>0.0.1</version>
+		</sxp_spago>
+	</modules>
+
+	<frontend>
+		<routers>
+			<spago>
+				<use>standard</use>
+				<args>
+					<module>Sxp_Spago</module>
+					<frontName>spago</frontName>
+				</args>
+			</spago>
+		</routers>
+        <layout>
+            <updates>
+                <spago module="spago">
+                    <file>spago.xml</file>
+                </spago>
+            </updates>
+        </layout>
+	</frontend>
+
+	<global>
+		<models>
+			<spago>
+				<class>Sxp_Spago_Model</class>
+			</spago>
+            <sales>
+                <rewrite>
+                    <order>Sxp_Spago_Model_Order</order>
+                </rewrite>
+            </sales>
+		</models>
+		<resources>
+            <payu_setup>
+                <setup>
+                    <module>Sxp_Spago</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </payu_setup>
+            <payu_write>
+                <use>core_write</use>
+            </payu_write>
+            <payu_read>
+                <use>core_read</use>
+            </payu_read>
+        </resources>
+		<helpers>
+			<spago>
+				<class>Sxp_Spago_Helper</class>
+			</spago>
+		</helpers>
+		<blocks>
+			<spago>
+				<class>Sxp_Spago_Block</class>
+			</spago>
+		</blocks>
+
+	</global>
+
+	<default>
+		<payment>
+			<spago>
+				<model>spago/standard</model>// very important thing, here you select the model for your payment method
+				<active>0</active>
+				<order_status>pending</order_status>
+				<title>Spago</title>
+				<id_sp></id_sp>
+				<key_sp></key_sp>
+				<modo_sp></modo_sp>
+			</spago>
+		</payment>
+	</default>
+
+</config>

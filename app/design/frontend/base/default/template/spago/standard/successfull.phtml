@@ -1,0 +1,510 @@
+<?php
+if ($this->getOrderId())
+{    // Recogemos datos de respuesta
+    $data = array(
+        "idsocio"               => $_POST['O1'],    //-- Identificador de Socio
+        "num_pedido"            => $_POST['O2'],    //-- Número de pedido de Socio
+        "num_transaccion"       => $_POST['O3'],    //-- Número de transacción generado por Seguripago
+        "fecha_hora_trans"      => $_POST['O4'],    //-- Fecha/hora de transacción en Unixtime
+        "moneda"                => $_POST['O5'],    //-- Moneda
+        "importe"               => $_POST['O6'],    //-- Importe aprobado
+        "resultado"             => $_POST['O7'],    //-- Resultado de la transaccion. Aprobado (1), No aprobado (2)
+        "cod_respuesta"         => $_POST['O8'],    //-- Código de respuesta, generado por el medio de pago
+        "txt_respuesta"         => $_POST['O9'],    //-- Texto descriptivo de respuestas, generado por el medio de pago
+        "medio_pago"            => $_POST['O10'],   //-- Código de Medio de pago utilizado para
+        //-- Seguricash se envía cero (0))
+        //-- SeguriCrédito (1) Visa, (2) Mastercard, (3) American Express
+        "tipo_respuesta"        => $_POST['O11'],   //-- Tipo de respuestas: Inmediato (1), Batch (2)
+        "cod_autoriza"          => $_POST['O12'],   //-- Código de autorización, enviado por algunos medios de pago
+        "num_referencia"        => $_POST['O13'],   //-- Número de referencia, enviado por algunos medios e pago
+        "hash"                  => $_POST['O14'],
+        "cod_producto"          => $_POST['O15'],   //-- Código del Producto de SeguriPago: (1) SeguriCrédito, (2) SeguriCash.
+        "num_tarjeta"           => $_POST['O16'],   //-- Número de tarjeta de crédito asteriscada
+        "nom_tarjetahabiente"   => $_POST['O17'],   //-- Nombre del tarjetahabiente
+        "fecha_vencimiento"     => $_POST['O18'],   //-- Fecha de Vencimiento
+    );
+
+    switch ($data["medio_pago"]) {
+        case '0':
+            $medio_de_pago = 'SeguriPago';
+            break;
+        case '1':
+            $medio_de_pago = 'SeguriPago Visa';
+            break;
+        case '2':
+            $medio_de_pago = 'SeguriPago Mastercard';
+            break;
+        case '3':
+            $medio_de_pago = 'SeguriPago American Express';
+            break;
+        case '13':
+            $medio_de_pago = 'SeguriPago Visa';
+            break;
+        default:
+            $medio_de_pago = 'SeguriPago';
+            break;
+    }
+
+    $fecha_tx = date("d/m/Y H:i", $data["fecha_hora_trans"]);
+    $moneda = ($data["moneda"] == "PEN" )? "S/.":$data["moneda"];
+
+    $store = Mage::app()->getStore();
+    $nameStore = $store->getFrontendName();
+
+    $customer = Mage::getSingleton('customer/session')->getCustomer();
+    $nameCustomer = $customer->getFirstname().' '.$customer->getLastname();
+
+    $urlImagenes = Mage::getBaseUrl('skin').'frontend/spago/default/images/';
+    $I3 = $this->getHashAcuse($data["idsocio"],$data["num_transaccion"]);
+    $acuseNowParams = "I1=".$data["idsocio"]."&I2=".$data["num_transaccion"]."&I3=".$I3;
+
+    $log = "";
+    if ( $this->getIsCurlActive() ) {
+
+        $envio = $this->getConfirmacionRecepcion($acuseNowParams);
+
+        if ( $envio != true && $envio != false ) {
+            $log = $envio;
+        } else {
+            $log = "Proceso concluido satisfactoriamente.";
+        }
+
+    } else {
+
+        $envio = false;
+    }
+
+
+    if($data['cod_producto'] == 1 ||  $data['cod_producto'] == 6)
+    {
+        if($data['resultado'] == 1 )
+        {
+
+            ?>
+            <div id="container-seguricash" style="font-family: sans-serif;">
+                <h1 style="font: 600 18px/22px 'Open Sans', sans-serif; padding: 0px 0px 17px 0px; overflow: hidden; margin: 0; font-family: 'Raleway', 'Helvetica Neue', Verdana, Arial, sans-serif; font-style: normal; line-height: 1.2; text-rendering: optimizeLegibility; font-size: 24px; font-weight: 600; color: #636363; border-bottom: 1px solid #ededed; padding-bottom: 3px; margin-bottom: 15px; text-transform: uppercase;">Confirmación de Pago</h1>
+
+                <div style="width: 100%; margin: 0 auto; padding-bottom: 20px; border: 1px solid #2E9FD2;">
+
+                    <div style="background-color: #2E9FD2;width: 100%;text-align: center;">
+                        <h1 style="padding: 10px 0px; text-align: center; color: #fff;font-size: 20px;font-weight: bold;">Felicitaciones por su compra</h1>
+                    </div>
+                    <div style="margin: 15px 25px;">
+
+                        <img src="<?php echo $urlImagenes.'sp_logo.png';?>" style="display: block;margin-left: auto;margin-right: auto;">
+                        <br />
+                        <div style="overflow: auto;"></div>
+                        <p style="font-size:18px;">La transacción fue exitosa:</p>
+                        <table border="0" width="100%" align="center">
+                            <tr class="td-border">
+                                <td width="50%" height="10px" ><strong>Número de Pedido:</strong></td>
+                                <td><?php print $this->getOrderId();?></td>
+                            </tr>
+                            <tr class="td-border">
+                                <td><strong>Aprobada por:</strong></td>
+                                <td><?php print $medio_de_pago;?></td>
+                            </tr>
+                            <tr class="td-border">
+                                <td><strong>Fecha y hora:</strong></td>
+                                <td><?php print $fecha_tx;?></td>
+                            </tr>
+                            <tr>
+                                <td style="height:15px" colspan="2"></td>
+                            </tr>
+                            <tr class="td-border">
+                                <td><strong>Código de SeguriPago:</strong></td>
+                                <td><?php print $data['num_transaccion'];?></td>
+                            </tr>
+                            <tr class="td-border">
+                                <td><strong>Importe:</strong></td>
+                                <td><?php print $moneda." ".$data['importe'];?></td>
+                            </tr>
+                            <tr class="td-border">
+                                <td><strong>Autorización:</strong></td>
+                                <td><?php print $data['num_referencia'];?></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" height="15px"></td>
+                            </tr>
+                            <tr class="td-border">
+                                <td><strong>Número de Tarjeta enmascarada:</strong></td>
+                                <td><?php print $data['num_tarjeta'];?></td>
+                            </tr>
+                            <tr class="td-border">
+                                <td><strong>Nombre del tarjetahabiente:</strong></td>
+                                <td><?php print $data['nom_tarjetahabiente'];?></td>
+                            </tr>
+                        </table>
+                        <br><br>
+
+                        Usted recibirá un email de confirmación de pedido con los detalles de su pedido.
+                    </div>
+                </div>
+            </div>
+        <?php
+
+        }
+        else
+        {
+            ?>
+
+
+            <div id="container-seguricash" style="font-family: sans-serif;">
+                <h1 style="font: 600 18px/22px 'Open Sans', sans-serif; padding: 0px 0px 17px 0px; overflow: hidden; margin: 0; font-family: 'Raleway', 'Helvetica Neue', Verdana, Arial, sans-serif; font-style: normal; line-height: 1.2; text-rendering: optimizeLegibility; font-size: 24px; font-weight: 600; color: #636363; border-bottom: 1px solid #ededed; padding-bottom: 3px; margin-bottom: 15px; text-transform: uppercase;">No se realizó el pago</h1>
+
+                <div style="width: 100%; margin: 0 auto; padding-bottom: 20px; border: 1px solid #2E9FD2;">
+
+                    <div style="background-color: #2E9FD2;width: 100%;text-align: center;">
+                        <h1 style="padding: 10px 0px; text-align: center; color: #fff;font-size: 20px;font-weight: bold;">Pago no realizado</h1>
+                    </div>
+                    <div style="margin: 15px 25px;">
+
+                        <img src="<?php echo $urlImagenes.'sp_logo.png';?>" style="display: block;margin-left: auto;margin-right: auto;">
+                        <br />
+                        <div style="overflow: auto;"></div>
+                        <p>Hola <?php echo $nameCustomer; ?>, Lamentamos que no puedas realizar la compra en <?php echo $nameStore;?>.</p>
+                        <table border="0" width="100%" align="center">
+                            <tr class="td-border">
+                                <td width="50%" height="10px" ><strong>Número de Pedido:</strong></td>
+                                <td><?php print $this->getOrderId();?></td>
+                            </tr>
+                            <tr class="td-border">
+                                <td><strong>Rechazada por:</strong></td>
+                                <td><?php print $medio_de_pago;?></td>
+                            </tr>
+                            <tr class="td-border">
+                                <td><strong>Fecha y hora:</strong></td>
+                                <td><?php print $fecha_tx;?></td>
+                            </tr>
+                            <tr>
+                                <td style="height:15px" colspan="2"></td>
+                            </tr>
+                            <tr class="td-border">
+                                <td><strong>Código de SeguriPago:</strong></td>
+                                <td><?php print $data['num_transaccion'];?></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" height="15px"></td>
+                            </tr>
+                            <tr>
+                                <td>Razón del rechazo: </td>
+                                <td> <?php print $data['txt_respuesta'];?></td>
+                            </tr>
+                        </table>
+                        <br><br>
+                        Al no realizar el pago no existe ningún cobro adicional, intenta nuevamente o selecciona otro medio de pago.</strong>
+                    </div>
+                </div>
+            </div>
+        <?php
+        }
+
+    }
+    elseif($data['cod_producto'] == 2)
+    {
+        if($data['resultado'] == 0) {
+            // Html para Seguricash
+            ?>
+            <script type="text/javascript">
+                (function ($, window, document, undefined) {
+                    $(function () {
+                        $("#imprimir").click(function () {
+                            var w = 900;
+                            var h = 500;
+                            var left = Number((screen.width / 2) - (w / 2));
+                            var tops = Number((screen.height / 2) - (h / 2));
+                            var htmlImprimir = $('#container-seguricash');
+                            htmlImprimir.find('.bankdetail').show();
+                            htmlImprimir.find('#opciones_pago').hide();
+                            htmlImprimir.find('#ver_intrucciones').hide();
+                            htmlImprimir.find('#imprimir').hide();
+                            var ventImprimir = window.open("", "Seguripago", 'title="hola", toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' + w + ', height=' + h + ', top=' + tops + ', left=' + left);
+                            ventImprimir.document.write(htmlImprimir.html());
+                            ventImprimir.document.close();
+                            ventImprimir.print();
+                            ventImprimir.close();
+                            htmlImprimir.find('.bankdetail').hide();
+                            htmlImprimir.find('#opciones_pago').show();
+                            htmlImprimir.find('#ver_intrucciones').show();
+                            htmlImprimir.find('#imprimir').show();
+                        });
+
+                        $('#img_bancos').click(function () {
+                            $('.bankdetail').slideToggle();
+                        });
+
+                    });
+
+                })(jQuery, window, document);
+
+            </script>
+            <center>
+                <div id="container-seguricash" style="font-family: sans-serif;">
+                    <div
+                        style="width: 100%; overflow-y: hidden;overflow-x: hidden;color: #666;line-height: 18px;font-family: Helvetica Neue,Helvetica,Arial,sans-serif;">
+                        <div id="print" style="background: white;text-align: center;with:100%;">
+                            <div style="width: 100%;margin-bottom: 10px;overflow: hidden;">
+                                <div
+                                    style="overflow: hidden;padding: 2px;border-width: 1px;border-style: dotted;border-color: #999999;border-top-right-radius: 4px; border-top-left-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;">
+                                    <div style="width: 100%;margin-bottom: 5px;overflow: hidden;">
+                                        <div style="text-align: center;">
+                                            <img title="SeguriPago" alt="SeguriPago"
+                                                 style="display: initial;max-width:100%;vertical-align: middle;"
+                                                 src="<?php echo $urlImagenes . 'sp_logo.png'; ?>">
+                                        </div>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                    <div style="width:50%; float: left; text-align:left;">
+                                        <div style="text-align: center;line-height: 26px;">
+                                            <small style="font-size: 14px;">Código de pago Seguripago</small>
+                                            <h3 style="margin:0px;font-size: 30px;line-height: 1.1;text-shadow: 1px 1px 5px #aaa;"><?php print $data['num_transaccion']; ?></h3>
+                                            <small style="color:#666;font-size: 12px;">
+                                                Vencimiento: <?php print $data['fecha_vencimiento']; ?></small>
+                                        </div>
+                                    </div>
+                                    <div style="width:50%; float: right;text-align:right;">
+                                        <div style="text-align: center;line-height: 26px;">
+                                            <small style="font-size: 14px;">Importe a pagar</small>
+                                            <h3 style="margin:0px;font-size: 24px;font-weight: 500;line-height: 1.1;color: inherit;"><?php print $moneda . " " . $data['importe']; ?></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="clear:both;"></div>
+                            <div id="opciones_pago"
+                                 style="width: 100%;margin-bottom: 5px;overflow: hidden;text-align: left;font-size: 13px;">
+                                <h5 style="margin: 0px;font-weight: 500;line-height: 1.1;color: inherit;font-size: 13px;">
+                                    Su recibo está disponible inmediatamente en:</h5>
+                                <ul style='margin: 5px 0px 0px 0px; list-style: circle inside; list-style-type: initial; margin-left: 30px;font-size: 13px;'>
+                                    <li>Banca por Internet</li>
+                                    <li>Agentes</li>
+                                    <li>Ventanilla</li>
+                                </ul>
+                            </div>
+                            <div style="clear:both;"></div>
+                            <div style="width: 100%;margin-bottom: 5px;overflow: hidden;font-size: 13px;">
+                                <h5 style="margin: 0px;font-weight: 500;line-height: 1.1;color: inherit;text-align: left;font-size: 13px;">
+                                    Puedes pagar en cualquiera de estos bancos:</h5>
+
+                                <div style="padding: 5px 15px 0px;">
+                                    <div id="img_bancos" style="cursor:pointer;">
+                                        <img style="display: initial;height:35px;margin: 0px 2px 0px 0px;"
+                                             src="<?php echo $urlImagenes . 'bbva_90X40.jpg'; ?>">
+                                        <img style="display: initial;height:35px;margin: 0px 2px 0px 0px;"
+                                             src="<?php echo $urlImagenes . 'scotia_90X40.jpg'; ?>">
+                                        <img style="display: initial;height:35px;margin: 0px 2px 0px 0px;"
+                                             src="<?php echo $urlImagenes . 'bcp_90X40.jpg'; ?>">
+
+                                        <p id="ver_intrucciones" style="font-style: italic;">Click en las imagenes para
+                                            ver instrucciones.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="width: 100%;margin-bottom: 10px;overflow: hidden;">
+                                <div style="width:50%; float: left;">
+                                    <div
+                                        style="border-color: #b3b3b3;border-right-width: 1px;border-right-style: solid;padding-left: 15px;padding-right: 15px;">
+                                        <div class="bankdetail f-xs marg-t"
+                                             style="display:none;font-size: 11px;line-height: 1.4;color: #333;text-align:left;">
+                                            <div style="text-align:center;">
+                                                <img style="display: initial;height: 33px;margin: 0px 0px 4px;"
+                                                     src="<?php echo $urlImagenes . 'bbva_90X40.jpg'; ?>">
+                                            </div>
+                                            <p style="margin-bottom: 7px;margin: 0 0 10px;"><b>1. Pagar en la banca
+                                                    electrónica del BBVA:</b></p>
+                                            <ul style="margin-left: 20px;margin-top: 0;margin-bottom: 10px;list-style: initial;">
+                                                <li>Selecciona Pago de servicios, instituciones y empresas.</li>
+                                                <li>Busca el Servicio <strong>SEGURIPAGO</strong> y selecciona <strong>SEGURIPAGO
+                                                        - SOLES</strong>.
+                                                </li>
+                                                <li>Ingresa el Código de SEGURIPAGO:
+                                                    <strong><?php print $data['num_transaccion']; ?></strong></li>
+                                                <li>Confirma y ejecuta el pago</li>
+                                            </ul>
+
+                                            <p style="margin-bottom: 7px;margin: 0 0 10px;"><b>2. Pagar en una Agencia o
+                                                    Agencia Express del BBVA:</b></p>
+                                            <ul style="margin-left: 20px;margin-top: 0;margin-bottom: 10px;list-style: initial;">
+                                                <li>Informa que realizará un pago de recaudación SEGURIPAGO-SOLES.</li>
+                                                <li>Comunica el <strong>Código de
+                                                        SEGURIPAGO: <?php print $data['num_transaccion']; ?></strong>.
+                                                </li>
+                                                <li>Recibe el ticket de transacción: EMISORA: SEGURIPAGO-SOLES.</li>
+                                            </ul>
+                                        </div>
+                                        <div class="bankdetail f-xs marg-t"
+                                             style="display:none;font-size: 11px;line-height: 1.4;color: #333;text-align:left;">
+                                            <div style="text-align:center;">
+                                                <img style="display: initial;height: 33px;margin: 0px 0px 4px;"
+                                                     src="<?php echo $urlImagenes . 'scotia_90X40.jpg'; ?>">
+                                            </div>
+
+                                            <p style="margin-bottom: 7px;margin: 0 0 10px;"><b>1.Pagar en Scotiaenlínea
+                                                    del banco Scotiabank:</b></p>
+                                            <ul style="margin-left: 20px;margin-top: 0;margin-bottom: 10px;list-style: initial;">
+                                                <li>Selecciona “Pagos –Otras Instituciones” o “Buscar empresas”: busca
+                                                    <strong>SeguriPago</strong>.
+                                                </li>
+                                                <li>Indica el número de referencia: <strong>Código de
+                                                        SEGURIPAGO: <?php print $data['num_transaccion']; ?></strong>
+                                                </li>
+                                                <li>Verifica el importe y ejecuta el pago</li>
+                                            </ul>
+
+                                            <p style="margin-bottom: 7px;margin: 0 0 10px;"><b>2. Pagar en una Agencia o
+                                                    Cajero Express del Scotiabank:</b></p>
+                                            <ul style="margin-left: 20px;margin-top: 0;margin-bottom: 10px;list-style: initial;">
+                                                <li>Indica que deseas realizar el pago de <strong>SeguriPago Soles (BT
+                                                        50/186)</strong></li>
+                                                <li>Comunica el <strong>Código de
+                                                        SEGURIPAGO: <?php print $data['num_transaccion']; ?></strong>.
+                                                </li>
+                                                <li>Confirma el importe y recibe el voucher de pago</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="width:50%; float: right;">
+                                    <div style="padding-left: 15px;padding-right: 15px;">
+                                        <div class="bankdetail f-xs marg-t"
+                                             style="display:none;font-size: 11px;line-height: 1.4;color: #333;text-align:left;">
+                                            <div style="text-align:center;">
+                                                <img style="display: initial;height: 33px;margin: 0px 0px 4px;"
+                                                     src="<?php echo $urlImagenes . 'bcp_90X40.jpg'; ?>">
+                                            </div>
+                                            <p style="margin-bottom: 7px;margin: 0 0 10px;"><b>1. En VíaBCP internet del
+                                                    BCP:</b></p>
+                                            <ul style="margin-left: 20px;margin-top: 0;margin-bottom: 10px;list-style: initial;">
+                                                <li>Selecciona la opción Pagos y transferencias, elije Pago de
+                                                    Servicios.
+                                                </li>
+                                                <li>Luego, en “Empresas diversas” busca: <strong>SEGURIPAGO</strong> y
+                                                    selecciona <strong>SEGURIPAGO - SOLES</strong>.
+                                                </li>
+                                                <li>Ingresa el <strong>Código de
+                                                        SEGURIPAGO: <?php print $data['num_transaccion']; ?></strong> y
+                                                    confirma el pago.
+                                                </li>
+                                            </ul>
+                                            <p style="margin-bottom: 7px;margin: 0 0 10px;"><b>2. En una Agencia o
+                                                    Agente del BCP:</b></p>
+                                            <ul style="margin-left: 20px;margin-top: 0;margin-bottom: 10px;list-style: initial;">
+                                                <li>Indica que va a realizar un pago a la empresa:
+                                                    <strong>SEGURIPAGO</strong></li>
+                                                <li>Comunica el <strong>Código de
+                                                        SEGURIPAGO: <?php print $data['num_transaccion']; ?></strong>
+                                                </li>
+                                                <li>Confirma el importe y recibe el voucher</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div style="float:right;">
+                            <button
+                                style="  display: inline-block;padding: 6px 12px;margin-bottom: 0;font-size: 14px;font-weight: 500;line-height: 20px;text-align: center;white-space: nowrap;vertical-align: middle;cursor: pointer;border: 1px solid #a7a9aa;border-radius: 4px;"
+                                id="imprimir">Imprimir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </center>
+            <?php
+        }
+        elseif($data['resultado'] == 1)
+        {
+
+            ?>
+            <div id="container-seguricash" style="font-family: sans-serif;">
+                <h1 style="font: 600 18px/22px 'Open Sans', sans-serif; padding: 0px 0px 17px 0px; overflow: hidden; margin: 0; font-family: 'Raleway', 'Helvetica Neue', Verdana, Arial, sans-serif; font-style: normal; line-height: 1.2; text-rendering: optimizeLegibility; font-size: 24px; font-weight: 600; color: #636363; border-bottom: 1px solid #ededed; padding-bottom: 3px; margin-bottom: 15px; text-transform: uppercase;">Confirmación de Pago</h1>
+
+                <div style="width: 100%; margin: 0 auto; padding-bottom: 20px; border: 1px solid #2E9FD2;">
+
+                    <div style="background-color: #2E9FD2;width: 100%;text-align: center;">
+                        <h1 style="padding: 10px 0px; text-align: center; color: #fff;font-size: 20px;font-weight: bold;">Felicitaciones por su compra</h1>
+                    </div>
+                    <div style="margin: 15px 25px;">
+
+                        <img src="<?php echo $urlImagenes.'sp_logo.png';?>" style="display: block;margin-left: auto;margin-right: auto;">
+                        <br />
+                        <div style="overflow: auto;"></div>
+                        <p style="font-size:18px;">La transacción fue exitosa:</p>
+                        <table border="0" width="100%" align="center">
+                            <tr class="td-border">
+                                <td width="50%" height="10px" ><strong>Número de Pedido:</strong></td>
+                                <td><?php print $this->getOrderId();?></td>
+                            </tr>
+                            <tr class="td-border">
+                                <td><strong>Aprobada por:</strong></td>
+                                <td><?php print $medio_de_pago;?></td>
+                            </tr>
+                            <tr class="td-border">
+                                <td><strong>Fecha y hora:</strong></td>
+                                <td><?php print $fecha_tx;?></td>
+                            </tr>
+                            <tr>
+                                <td style="height:15px" colspan="2"></td>
+                            </tr>
+                            <tr class="td-border">
+                                <td><strong>Código de SeguriPago:</strong></td>
+                                <td><?php print $data['num_transaccion'];?></td>
+                            </tr>
+                            <tr class="td-border">
+                                <td><strong>Importe:</strong></td>
+                                <td><?php print $moneda." ".$data['importe'];?></td>
+                            </tr>
+                            <tr class="td-border">
+                                <td><strong>Autorización:</strong></td>
+                                <td><?php print $data['num_referencia'];?></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" height="15px"></td>
+                            </tr>
+                        </table>
+                        <br><br>
+
+                        Usted recibirá un email de confirmación de pedido con los detalles de su pedido.
+                    </div>
+                </div>
+            </div>
+            <?php
+
+        }
+
+    }
+    ?>
+    <script type="text/javascript">
+        <?php
+         echo "console.log('".$log."');";
+         if ( $envio == false) {
+         ?>
+        $(function () {
+            $.ajax({
+                data: '<?php echo $acuseNowParams; ?>',
+                url: '<?php echo $this->getRutaAcuseSPago(); ?>',
+                type: 'post',
+                async: true,
+                dataType: 'json',
+                crossDomain: true,
+                cache: false,
+                success: function (response) {
+                    console.log(response);
+                }
+
+            });
+        });
+
+        <?php
+          }
+         ?>
+    </script>
+    <div class="buttons-set">
+        <button type="button" class="button" title="<?php echo $this->__('Continue Shopping') ?>" onclick="window.location='<?php echo $this->getUrl() ?>'"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
+    </div>
+<?php
+}
+?>

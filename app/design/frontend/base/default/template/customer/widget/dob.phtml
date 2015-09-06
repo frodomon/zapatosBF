@@ -1,0 +1,138 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+USAGE:
+
+Simple:
+
+<?php echo $this->getLayout()->createBlock('customer/widget_dob')
+   ->setDate($this->getCustomer()->getDob())
+   ->toHtml() ?>
+
+For checkout/onepage/billing.phtml:
+
+<?php echo $this->getLayout()->createBlock('customer/widget_dob')
+   ->setDate($this->getCustomer()->getDob())
+   ->setFieldIdFormat('billing:%s')
+   ->setFieldNameFormat('billing[%s]')
+   ->toHtml() ?>
+
+NOTE: Regarding styles - if we leave it this way, we'll move it to boxes.css
+      Alternatively we could calculate widths automatically using block input parameters.
+*/
+
+/**
+ * @see Mage_Customer_Block_Widget_Dob
+ */
+?>
+<label for="<?php echo $this->getFieldId('month')?>"<?php if ($this->isRequired()) echo ' class="required"' ?>><?php if ($this->isRequired()) echo '<em>*</em>' ?><?php echo $this->__('Date of Birth') ?></label>
+<div class="input-box customer-dob">
+	<?php
+    // days
+    echo "<select id=\"sDay\" name=\"sDay\" rel=\"".str_replace(":","\:",$this->getFieldId('day'))."\" class=\"dateselect\">";
+	$selected = (!$this->getDay()) ? "selected=\"selected\"" : "";
+	echo "<option value=\"\" ".$selected.">Día</option>";
+    for ($i = 1; $i <= 31; $i++) {
+        $ti = str_pad($i, 2, "0", STR_PAD_LEFT);
+		$selected = ($this->getDay() == $ti) ? "selected=\"selected\"" : "";
+        echo "<option value=\"".$ti."\" ".$selected.">".$i."</option>";
+    }
+    echo "</select>";
+    ?>
+    
+    <?php
+    // months
+    $months = array(
+        '01'=>'Enero',
+        '02'=>'Febrero',
+        '03'=>'Marzo',
+        '04'=>'Abril',
+        '05'=>'Mayo',
+        '06'=>'Junio',
+        '07'=>'Julio',
+        '08'=>'Agosto',
+        '09'=>'Septiembre',
+        '10'=>'Octubre',
+        '11'=>'Noviembre',
+        '12'=>'Diciembre',
+    );
+    echo "<select id=\"sMonth\" name=\"sMonth\" rel=\"".str_replace(":","\:",$this->getFieldId('month'))."\" class=\"dateselect\">";
+	$selected = (!$this->getMonth()) ? "selected=\"selected\"" : "";
+	echo "<option value=\"\" ".$selected.">Mes</option>";
+    foreach ($months as $key=>$var)
+    {
+        $selected = ($this->getMonth() == $key) ? "selected=\"selected\"" : "";
+        echo "<option value=\"".$key."\" ".$selected.">".$var."</option>";
+    }
+    echo "</select>";
+    ?>
+    
+    <?php
+    // years
+    $year_end = date('Y');
+    $year_start = $year_end-99;
+	echo "<select id=\"sYear\" name=\"sYear\" rel=\"".str_replace(":","\:",$this->getFieldId('year'))."\" class=\"dateselect\">";
+	$selected = (!$this->getYear()) ? "selected=\"selected\"" : "";
+	echo "<option value=\"\" ".$selected.">Año</option>";
+    for ($i = $year_end; $i >= $year_start; $i--) {
+        $selected = ($this->getYear() == $i) ? "selected=\"selected\"" : "";
+        echo "<option value=\"".$i."\" ".$selected.">".$i."</option>";
+    }
+    echo "</select>";
+	
+    ?>
+    <div class="dob-full" style="display:none;">
+        <div class="dob-day"><input type="hidden" id="<?php echo $this->getFieldId('day')?>" name="<?php echo $this->getFieldName('day')?>" value="<?php echo $this->getDay()?>" /></div>
+        <div class="dob-month"><input type="hidden" id="<?php echo $this->getFieldId('month')?>" name="<?php echo $this->getFieldName('month')?>" value="<?php echo $this->getMonth()?>" /></div>
+        <div class="dob-year"><input type="hidden" id="<?php echo $this->getFieldId('year')?>" name="<?php echo $this->getFieldName('year')?>" value="<?php echo $this->getYear()?>" /></div>
+        <input type="hidden" id="<?php echo $this->getFieldId('dob')?>" name="<?php echo $this->getFieldName('dob')?>" />
+    </div>
+    <div class="validation-advice" style="display:none;"></div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+
+var customer_dob = new Varien.DOB('.customer-dob', <?php echo $this->isRequired() ? 'true' : 'false' ?>, '<?php echo $this->getDateFormat() ?>');
+jQuery(document).ready(function() {
+	// on load set field values
+	jQuery( ".dateselect" ).each(function() {
+	  related_field_id = jQuery(this).attr('rel');
+	  current_value = jQuery( "#"+related_field_id ).val();
+	  jQuery(this).val(current_value);
+	});
+	  jQuery( "#<?php echo str_replace(":","\:",$this->getFieldId('dob'));?>" ).val(jQuery("#<?php echo str_replace(":","\:",$this->getFieldId('day'));?>").val()+'/'+jQuery("#<?php echo str_replace(":","\:",$this->getFieldId('month'));?>").val()+'/'+jQuery("#<?php echo str_replace(":","\:",$this->getFieldId('year'));?>").val());
+	// on change set field values
+	jQuery( ".dateselect" ).change(function() {
+	  current_value = jQuery(this).val();
+	  related_field_id = jQuery(this).attr('rel');
+	  jQuery( "#"+related_field_id ).val(current_value);
+	  jQuery( "#<?php echo str_replace(":","\:",$this->getFieldId('dob'));?>" ).val(jQuery("#<?php echo str_replace(":","\:",$this->getFieldId('day'));?>").val()+'/'+jQuery("#<?php echo str_replace(":","\:",$this->getFieldId('month'));?>").val()+'/'+jQuery("#<?php echo str_replace(":","\:",$this->getFieldId('year'));?>").val());
+	});
+});
+
+//]]>
+</script>

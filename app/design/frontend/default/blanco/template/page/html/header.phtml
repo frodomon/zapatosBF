@@ -1,0 +1,34 @@
+<div id="top"></div>
+
+
+<div class="header-container">
+    <div class="header">
+<!--        <div class="header-left">
+            <?php echo $this->getChildHtml('store_language') ?>
+        </div>-->
+         <div class="header-center">
+            <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo show-responsive"><img class='block-display logo-position-fix-1 auto-margin' src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+            <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo hide-responsive"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>                                      
+            <?php echo $this->getChildHtml('topBar') ?>
+        </div> 
+        
+        <div class="header-right full-size-mobile">
+        	<?php echo $this->getChildHtml('store_switcher') ?>
+            <div class="minicart">
+                <?php echo $this->getChildHtml('top_cart') ?>
+            </div>
+            <?php echo $this->getChildHtml('currency') ?>
+            <div class="clear"></div>
+            <?php echo $this->getChildHtml('topLinks') ?>
+        </div>
+    </div>
+
+    
+    <?php echo $this->getChildHtml('topMenu') ?>
+    <?php echo $this->getChildHtml('topContainer'); ?>
+</div> 
+<div class="main-section-separation margin-top-fix hide-responsive">
+    <div class="thin"></div>
+    <div class="tick"></div>
+</div>
+<?php echo $this->getChildHtml('topBread') ?>

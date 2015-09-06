@@ -1,0 +1,9 @@
+a:5:{i:0;s:25:"Unsupported image format.";i:1;s:1009:"#0 /home/bferr/public_html/lib/Varien/Image/Adapter/Gd2.php(74): Varien_Image_Adapter_Gd2->_getCallback('create')
+#1 /home/bferr/public_html/app/code/core/Mage/Adminhtml/controllers/Cms/WysiwygController.php(52): Varien_Image_Adapter_Gd2->open('/home/bferr/pub...')
+#2 /home/bferr/public_html/app/code/core/Mage/Core/Controller/Varien/Action.php(418): Mage_Adminhtml_Cms_WysiwygController->directiveAction()
+#3 /home/bferr/public_html/app/code/core/Mage/Core/Controller/Varien/Router/Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('directive')
+#4 /home/bferr/public_html/app/code/core/Mage/Core/Controller/Varien/Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
+#5 /home/bferr/public_html/app/code/core/Mage/Core/Model/App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
+#6 /home/bferr/public_html/app/Mage.php(684): Mage_Core_Model_App->run(Array)
+#7 /home/bferr/public_html/index.php(84): Mage::run('', 'store')
+#8 {main}";s:3:"url";s:148:"/index.php/dps/cms_wysiwyg/directive/___directive/e3ttZWRpYSB1cmw9Ind5c2l3eWcvYmxhbmNvLy9tYXJjYS0yLnBuZyJ9fQ,,/key/ef605b818efd46d64f3b1f535e3967d8/";s:11:"script_name";s:10:"/index.php";s:4:"skin";s:5:"admin";}

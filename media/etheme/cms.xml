@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<demodata>
+    <cmsblocks>
+        <cmsblock>
+            <id>footer_shipping</id>
+            <title>Footer Blocks</title>
+            <content><![CDATA[<div class="shippingreturns">
+<div class="shippingpolicy" style="width: 140px; float: left;">
+<h4 style="font-weight: none !important;">Our Offers</h4>
+<ul class="policy">
+<li><a href="#">New products</a></li>
+<li><a href="#">Top sellers</a></li>
+<li><a href="#">Specials</a></li>
+<li><a href="#">Manufacturers</a></li>
+<li><a href="#">Suppliers</a></li>
+<li><a href="#">Specials</a></li>
+<li><a href="#">Service</a></li>
+</ul>
+</div>
+<div class="shippingpolicy" style="width: 150px; float: left;">
+<h4 style="font-weight: none !important;">Shipping Info</h4>
+<ul class="policy">
+<li><a href="#">Returns</a></li>
+<li><a href="#">Delivery</a></li>
+<li><a href="#">Service</a></li>
+<li><a href="#">Gift Cards</a></li>
+<li><a href="#">Mobile</a></li>
+<li><a href="#">Gift Cards</a></li>
+<li><a href="#">Manufacturers</a></li>
+</ul>
+</div>
+<div class="shippingpolicy" style="width: 150px; float: left;">
+<h4 style="font-weight: none !important;">Our Account</h4>
+<ul class="policy">
+<li><a href="#">Your Account</a></li>
+<li><a href="#">information</a></li>
+<li><a href="#">Addresses</a></li>
+<li><a href="#">Discount</a></li>
+<li><a href="#">Orders history</a></li>
+<li><a href="#">Addresses</a></li>
+<li><a href="#">Search Terms</a></li>
+</ul>
+</div>
+<div class="shippingpolicy" style="width: 150px; float: left;">
+<h4 style="font-weight: none !important;">Our Support</h4>
+<ul class="policy">
+<li><a href="#">Site Map</a></li>
+<li><a href="#">Search Terms</a></li>
+<li><a href="#">Advanced Search</a></li>
+<li><a href="#">Mobile</a></li>
+<li><a href="#">Contact Us</a></li>
+<li><a href="#">Mobile</a></li>
+<li><a href="#">Addresses</a></li>
+</ul>
+</div>
+</div>]]></content>
+        </cmsblock>
+        <cmsblock>
+            <id>follow_us</id>
+            <title>Follow Us</title>
+            <content><![CDATA[<div style="border-top: 1px solid #efefef; padding: 12px 0 0 0;">
+<p class="follow_us">Follow Us:</p>
+<p class="left"><a class="facebook" href=" http://feedburner.com">&nbsp;</a> <a class="twitter" href="http://twitter.com">&nbsp;</a> <a class="rss" href="http://www.facebook.com">&nbsp;</a></p>
+<div class="gift_img"><img src="{{media url="wysiwyg/blanco/gift.png"}}" alt="" /></div>
+<div class="phone"><img src="{{media url="wysiwyg/blanco/telephone.png"}}" alt="" /></div>
+</div>]]></content>
+        </cmsblock>
+        <cmsblock>
+            <id>Footer Payments</id>
+            <title>verify</title>
+            <content><![CDATA[<div style="padding-top: 2px;"><img src="{{media url="wysiwyg/blanco/paypal.png"}}" alt="paypal" />&nbsp;&nbsp; &nbsp;<img src="{{media url="wysiwyg/blanco/discover.png"}}" alt="discover" />&nbsp; &nbsp;&nbsp;<img src="{{media url="wysiwyg/blanco/visa_straight.png"}}" alt="visa_straight" />&nbsp; &nbsp;&nbsp;<img src="{{media url="wysiwyg/blanco/aex.png"}}" alt="aex" />&nbsp; &nbsp;&nbsp;<img src="{{media url="wysiwyg/blanco/mastercard.png"}}" alt="mastercard" />&nbsp;&nbsp; &nbsp;<img src="{{media url="wysiwyg/blanco/maestro.png"}}" alt="maestro" /></div>]]></content>
+        </cmsblock>
+        <cmsblock>
+            <id>footer_time</id>
+            <title>Footer Time</title>
+            <content><![CDATA[<h4 style="padding-top: 17px;"><span>Opening time:</span></h4>
+<address><span style="color: #888888; font-size: 11px;">Mon-Fri: .......................... 8.00 to 18.00</span></address><address><span style="color: #888888; font-size: 11px;">Sat: ................................ 9.00 to 18.00</span></address><address><span style="color: #888888; font-size: 11px;">Sun: ............................. 10.00 to 16.00</span></address>]]></content>
+        </cmsblock>
+        <cmsblock>
+            <id>product_custom_tab</id>
+            <title>Product Custom Tab</title>
+            <content><![CDATA[<div class="global-custom-tab"><img class="img-left" src="{{media url="wysiwyg/8theme/customtab.png"}}" alt="" />
+<h3>Custom TEXT/HTML</h3>
+Ultricies sociis ut vel parturient! Tempor! Nec quis turpis placerat ac hac tincidunt, velit, vel sit mauris a, dolor, natoque enim! Etiam risus? Elit, adipiscing dignissim ut et risus sit placerat, penatibus tincidunt, diam sed dignissim rhoncus mus lectus, penatibus arcu sit in mattis porta placerat. Ultricies velit odio. Vel? Aliquam nunc dolor! Nisi, cras, nunc, et auctor? Augue facilisis! Augue eu dis platea sed, placerat hac pid, lectus dapibus turpis in tincidunt arcu rhoncus auctor. Sit duis nascetur vut! Pulvinar egestas, aenean, sagittis odio enim magna, etiam platea nec lundium, nisi, mauris porttitor elementum a. Ultricies sociis ut vel parturient! Tempor! Nec quis turpis placerat ac hac tincidunt, velit, vel sit mauris a, dolor, natoque enim! Etiam risus? Elit, adipiscing dignissim ut et risus sit placerat, penatibus tincidunt, diam sed dignissim rhoncus mus lectus, penatibus arcu sit in mattis porta placerat. Ultricies velit odio. Vel? Aliquam nunc dolor! Nisi, cras, nunc, et auctor? Augue facilisis! Augue eu dis platea sed, placerat hac pid, lectus dapibus turpis in tincidunt arcu rhoncus auctor. Sit duis nascetur vut! Pulvinar egestas, aenean, sagittis odio enim magna, etiam platea nec lundium, nisi, mauris porttitor elementum a.</div>]]></content>
+        </cmsblock>
+        <cmsblock>
+            <id>productview</id>
+            <title>Product Page Banners</title>
+            <content><![CDATA[<div class="left_banner" style="margin-bottom: 15px; background: none;"><img src="{{media url="wysiwyg/blanco/bp1.png"}}" alt="" /><a class="readmore" href="/demo/blanco/accessories.html">Shop Now</a></div>
+<div class="left_banner" style="background: none;"><img src="{{media url="wysiwyg/blanco/bp2.png"}}" alt="" /><a class="readmore" href="/demo/blanco/accessories.html">Shop Now</a></div>]]></content>
+        </cmsblock>
+        <cmsblock>
+            <id>nav_block1</id>
+            <title>Furniture</title>
+            <content><![CDATA[<ul class="blocklist">
+<li class="level1 nav-1-1 first parent"><a href="http://8theme.com/demo/blanco/furniture/living-room.html"> <span>DRESSES</span> </a>
+<ul class="level1">
+<li class="level2 nav-1-1-1 first"><a href="http://8theme.com/demo/blanco/furniture/living-room/cocktail.html"> <span>Cocktail</span> </a></li>
+<li class="level2 nav-1-1-2"><a href="http://8theme.com/demo/blanco/furniture/living-room/day.html"> <span>Day</span> </a></li>
+<li class="level2 nav-1-1-3"><a href="http://8theme.com/demo/blanco/furniture/living-room/evening.html"> <span>Evening</span> </a></li>
+<li class="level2 nav-1-1-4"><a href="http://8theme.com/demo/blanco/furniture/living-room/sundresses.html"> <span>Sundresses</span> </a></li>
+<li class="level2 nav-1-1-5"><a href="http://8theme.com/demo/blanco/furniture/living-room/sweater.html"> <span>Sweater</span> </a></li>
+<li class="level2 nav-1-1-6"><a href="http://8theme.com/demo/blanco/furniture/living-room/belts.html"> <span>Belts</span> </a></li>
+<li class="level2 nav-1-1-7"><a href="http://8theme.com/demo/blanco/furniture/living-room/blouses-and-shirts.html"> <span>Blouses and Shirts</span> </a></li>
+<li class="level2 nav-1-1-8 last"><a href="http://8theme.com/demo/blanco/furniture/living-room/t-shirts.html"> <span>T-Shirts</span> </a></li>
+</ul>
+</li>
+<li class="level1 nav-1-5 last parent"><a href="http://8theme.com/demo/blanco/furniture/lingerie.html"> <span>LINGERIE</span> </a>
+<ul class="level1">
+<li class="level2 nav-1-5-27 first"><a href="http://8theme.com/demo/blanco/furniture/lingerie/briefs.html"> <span>Briefs</span> </a></li>
+<li class="level2 nav-1-5-28"><a href="http://8theme.com/demo/blanco/furniture/lingerie/camis.html"> <span>Camis</span> </a></li>
+<li class="level2 nav-1-5-29"><a href="http://8theme.com/demo/blanco/furniture/lingerie/nightwear.html"> <span>Nightwear</span> </a></li>
+<li class="level2 nav-1-5-30 last"><a href="http://8theme.com/demo/blanco/furniture/lingerie/shapewear.html"> <span>Shapewear</span> </a></li>
+</ul>
+</li>
+<li class="level1 nav-3-3 parent over"><a class="over" href="http://8theme.com/demo/blanco/apparel/hoodies.html"> <span>Footwear Womens</span> </a>
+<ul class="level1 shown-sub">
+<li class="level2 nav-3-3-14 first"><a href="http://8theme.com/demo/blanco/apparel/hoodies/boots.html"> <span>Boots</span> </a></li>
+<li class="level2 nav-3-3-15"><a href="http://8theme.com/demo/blanco/apparel/hoodies/slippers-clogs.html"> <span>Slippers and Clogs</span> </a></li>
+<li class="level2 nav-3-3-16"><a href="http://8theme.com/demo/blanco/apparel/hoodies/flats.html"> <span>Flats</span> </a></li>
+<li class="level2 nav-3-3-17"><a href="http://8theme.com/demo/blanco/apparel/hoodies/sneakers.html"> <span>Sneakers</span> </a></li>
+<li class="level2 nav-3-3-18 over"><a class="over" href="http://8theme.com/demo/blanco/apparel/hoodies/wedges-heels.html"> <span>Wedges and Heels</span> </a></li>
+<li class="level2 nav-3-3-19"><a href="http://8theme.com/demo/blanco/apparel/hoodies/sandals-flip-flops.html"> <span>Sandals and Flip Flops</span> </a></li>
+<li class="level2 nav-3-3-20 last"><a href="http://8theme.com/demo/blanco/apparel/hoodies/brands-we-love.html"> <span>Brands We Love</span> </a></li>
+</ul>
+</li>
+</ul>
+<div class="nav-demo-block right">
+<h3 style="margin-top: -5px;">Custom HTML</h3>
+<img style="float: left; margin: 0 20px 10px 0;" src="{{media url="wysiwyg/blanco/magento.png"}}" alt="" />This is a HTML block; you can create it via admin panel. There are many blocks like this on site. They are created especially to set to everybody&rsquo;s preferences. If you have any questions please make a request via our <a style="float: none; display: inline; line-height: 1.55em;" href="http://8theme.com/contacts" target="_blank">contact form</a></div>
+<p>Thanks</p>]]></content>
+        </cmsblock>
+        <cmsblock>
+            <id>left_block3</id>
+            <title>Custom HTML</title>
+            <content><![CDATA[<div class="category-block-2-content" style="border-bottom: 1px solid #efefef;">
+<p>This is a HTML block; you can create it via admin panel. There are many blocks like this on site. They are created especially to set to everybody&rsquo;s preferences. If you have any questions please make a request via our <a href="http://8theme.com/contacts" target="_blank">contact form</a></p>
+</div>
+<div class="category-block-2-txt" style="margin-top: 10px;">
+<p>Thanks</p>
+</div>]]></content>
+        </cmsblock>
+        <cmsblock>
+            <id>right_block_without_design1</id>
+            <title>right_block_without_design1</title>
+            <content><![CDATA[<div class="left_banner" style="padding-top: 15px; margin-bottom: 10px; background-color: white;"><img src="{{media url="wysiwyg/blanco/page_banner2.png"}}" alt="" /><a class="readmore" href="/demo/blanco/accessories.html">Shop Now</a></div>]]></content>
+        </cmsblock>
+
+        <cmsblock>
+            <id>product_custom_tab</id>
+            <title>Custom Tab</title>
+            <content><![CDATA[<div class="left" style="width: 425px; padding-right: 20px; margin-right: 20px; border-right: 1px solid #efefef;">
+<h3 style="margin-top: -5px;">Custom HTML</h3>
+<img style="float: left; margin: 0 20px 10px 0;" src="http://8theme.com/demo/blanco/media/wysiwyg/blanco/magento.png" alt="" />Ultricies sociis ut vel parturient! Tempor! Nec quis turpis placerat ac hac tincidunt, velit, vel sit mauris a, dolor, natoque enim! Etiam risus? Elit, adipiscing dignissim ut et risus sit placerat, penatibus tincidunt, diam sed dignissim rhoncus mus lectus, penatibus arcu sit in mattis porta placerat. Ultricies velit odio. Vel? Aliquam nunc dolor! Nisi, cras, nunc, et auctor? Augue facilisis! Augue eu dis platea sed, placerat hac pid, lectus dapibus turpis in tincidunt arcu rhoncus auctor. Sit duis nascetur vut! Pulvinar egestas, aenean, sagittis odio enim magna, etiam platea nec lundium, nisi, mauris porttitor elementum a, tempor turpis.</div>
+<div class="right" style="width: 440px;">
+<h3 style="margin-top: -5px;">Custom HTML</h3>
+<img style="float: left; margin: 0 20px 10px 0;" src="http://8theme.com/demo/blanco/media/wysiwyg/blanco/magento2.png" alt="" />Ultricies sociis ut vel parturient! Tempor! Nec quis turpis placerat ac hac tincidunt, velit, vel sit mauris a, dolor, natoque enim! Etiam risus? Elit, adipiscing dignissim ut et risus sit placerat, penatibus tincidunt, diam sed dignissim rhoncus mus lectus, penatibus arcu sit in mattis porta placerat. Ultricies velit odio. Vel? Aliquam nunc dolor! Nisi, cras, nunc, et auctor? Augue facilisis! Augue eu dis platea sed, placerat hac pid, lectus dapibus turpis in tincidunt arcu rhoncus auctor. Sit duis nascetur vut! Pulvinar egestas, aenean, sagittis odio enim magna, etiam platea nec lundium, nisi, mauris porttitor elementum a, tempor turpis.</div>
+<div class="clear">&nbsp;</div>]]></content>
+        </cmsblock>
+
+        <cmsblock>
+            <id>right_block_without_design1</id>
+            <title>right_block_without_design1</title>
+            <content><![CDATA[<div class="left_banner" style="padding-top: 15px; margin-bottom: 10px; background-color: white;"><img src="{{media url="wysiwyg/blanco/page_banner2.png"}}" alt="" /><a class="readmore" href="/demo/blanco/accessories.html">Shop Now</a></div>]]></content>
+        </cmsblock>
+
+    </cmsblocks>
+</demodata>

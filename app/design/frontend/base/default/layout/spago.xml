@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+
+ */
+-->
+<layout version="0.1.0">
+
+<!--     <checkout_onepage_success translate="label">
+        <reference name="content">
+          <block type="checkout/onepage_success" name="checkout.success" template="checkout/success.phtml" />
+        </reference>
+
+        <reference name="checkout.success">
+                <block type="core/template" name="birthday" as="birthday" template="spago/mark.phtml" />
+                <block type="core/template" name="test" as="test" template="spago/mark.phtml" />
+                 <block type="core/template" name="test1" template="spago/mark.phtml"/>
+        </reference>
+    </checkout_onepage_success> -->
+
+<!--     <checkout_onepage_failure>
+        <update handle="spago_onepage_failure" />
+    </checkout_onepage_failure>
+
+    <spago_onepage_failure translate="label">
+        <reference name="content">
+            <block type="checkout/onepage_failure" name="checkout.failure" template="checkout/failure.phtml" ></block>
+        </reference>
+
+        <reference name="checkout.failure">
+                <block type="core/template" name="birthday" as="birthday" template="spago/mark.phtml" />
+        </reference>
+
+    </spago_onepage_failure>
+
+
+    <default>
+
+        <reference name="before_body_end">
+            <block type="spago/footer" name="spago_footer" template="sxp_spago/footer.phtml" />
+            <block type="spago/footer" name="spago_footer" template="spago/footer.phtml" />
+        </reference>
+
+    </default>
+
+    <checkout_onepage_success translate="label">
+        <label>One Page Checkout Success</label>
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="checkout/onepage_success" name="checkout.success" template="checkout/success.phtml"/>
+        </reference>
+    </checkout_onepage_success>
+
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+        </reference>
+    <checkout_onepage_success>
+        <update handle="spago_standard_successfull" />
+    </checkout_onepage_success>
+
+
+    <spago_standard_successfull>
+        <reference name="content">
+            <block type="checkout/onepage_success" name="spago_su" template="spago/standard/successfull.phtml" />
+        </reference>
+    </spago_standard_successfull>
+    <spago_standard_eediferido>
+        <reference name="content">
+            <block type="checkout/onepage_success" name="spago_footer" template="spago/standard/successfull.phtml" />
+        </reference>
+    </spago_standard_eediferido>
+-->
+
+    <spago_standard_successfull>
+        <reference name="content">
+            <block type="spago/success" name="spago_success" template="spago/standard/successfull.phtml" />
+        </reference>
+    </spago_standard_successfull>
+
+    <spago_standard_instrucciones>
+        <reference name="content">
+            <block type="spago/instrucciones" name="spago_instrucciones" template="spago/standard/instrucciones.phtml" />
+        </reference>
+    </spago_standard_instrucciones>
+
+</layout>
+
+
+

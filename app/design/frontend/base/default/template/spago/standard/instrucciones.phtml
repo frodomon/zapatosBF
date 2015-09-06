@@ -1,0 +1,110 @@
+<?php
+$urlImagenes = Mage::getBaseUrl('skin').'frontend/spago/default/images/';
+?>
+<div id="container-seguricash" style="font-family: sans-serif;">
+                <div style="width: 100%; overflow-y: hidden;overflow-x: hidden;color: #666;line-height: 18px;font-family: Helvetica Neue,Helvetica,Arial,sans-serif;">
+                    <div id="print" style="background: white;text-align: center;with:100%;">
+                        <div style="width: 100%;margin-bottom: 10px;overflow: hidden;">
+                            <div style="overflow: hidden;padding: 2px;border-width: 1px;border-style: dotted;border-color: #999999;border-top-right-radius: 4px; border-top-left-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;">
+                                <div style="width: 100%;margin-bottom: 5px;overflow: hidden;">
+                                    <div style="text-align: center;">
+                                        <img title="SeguriPago" alt="SeguriPago"  style="display: initial;max-width:100%;vertical-align: middle;" src="<?php echo $urlImagenes.'sp_logo.png';?>">
+                                    </div>
+                                </div>
+                                <div style="clear:both;"></div>
+                                <div style="width:100%; float: left; text-align:left;">
+                                    <div style="text-align: center;line-height: 26px;">
+                                        <small style="font-size: 14px;">Código de pago Seguripago</small>
+                                        <h3 style="margin:0px;font-size: 30px;line-height: 1.1;text-shadow: 1px 1px 5px #aaa;"><?php print $_GET['codSeguripago']; ?></h3>
+                                        <small style="color:#666;font-size: 12px;">Vencimiento: <?php print  $_GET['fecha']; ?></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="clear:both;"></div>
+                        <div id="opciones_pago" style="width: 100%;margin-bottom: 5px;overflow: hidden;text-align: left;font-size: 13px;">
+                            <h5 style="margin: 0px;font-weight: 500;line-height: 1.1;color: inherit;font-size: 13px;">Su recibo está disponible inmediatamente en:</h5>
+                            <ul style='margin: 5px 0px 0px 0px; list-style: circle inside; list-style-type: initial; margin-left: 30px;font-size: 13px;'>
+                                <li>Banca por Internet</li>
+                                <li>Agentes</li>
+                                <li>Ventanilla</li>
+                            </ul>
+                        </div>
+                        <div style="clear:both;"></div>
+                        <div style="width: 100%;margin-bottom: 5px;overflow: hidden;font-size: 13px;">
+                            <h5 style="margin: 0px;font-weight: 500;line-height: 1.1;color: inherit;text-align: left;font-size: 13px;">Puedes pagar en cualquiera de estos bancos:</h5>
+                        </div>
+                        <div style="width: 100%;margin-bottom: 10px;overflow: hidden;">
+                            <div style="width:50%; float: left;">
+                                <div style="border-color: #b3b3b3;border-right-width: 1px;border-right-style: solid;padding-left: 15px;padding-right: 15px;">
+                                    <div class="bankdetail f-xs marg-t" style="display:block;font-size: 11px;line-height: 1.4;color: #333;text-align:left;">
+                                        <div style="text-align:center;">
+                                            <img style="display: initial;height: 33px;margin: 0px 0px 4px;" src="<?php echo $urlImagenes.'bbva_90X40.jpg';?>">
+                                        </div>
+                                        <p style="margin-bottom: 7px;margin: 0 0 10px;"><b>1. Pagar en la banca electrónica del BBVA:</b></p>
+                                        <ul style="margin-left: 20px;margin-top: 0;margin-bottom: 10px;list-style: initial;">
+                                            <li>Selecciona Pago de servicios, instituciones y empresas.</li>
+                                            <li>Busca el Servicio <strong>SEGURIPAGO</strong> y selecciona <strong>SEGURIPAGO - SOLES</strong>.</li>
+                                            <li>Ingresa el Código de SEGURIPAGO: <strong><?php print $_GET['codSeguripago']; ?></strong></li>
+                                            <li>Confirma y ejecuta el pago</li>
+                                        </ul>
+
+                                        <p style="margin-bottom: 7px;margin: 0 0 10px;"><b>2. Pagar en una Agencia o Agencia Express del BBVA:</b></p>
+                                        <ul style="margin-left: 20px;margin-top: 0;margin-bottom: 10px;list-style: initial;">
+                                            <li>Informa que realizará un pago de recaudación SEGURIPAGO-SOLES.</li>
+                                            <li>Comunica el <strong>Código de SEGURIPAGO: <?php print $_GET['codSeguripago']; ?></strong>.</li>
+                                            <li>Recibe el ticket de transacción: EMISORA: SEGURIPAGO-SOLES.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bankdetail f-xs marg-t" style="display:block;font-size: 11px;line-height: 1.4;color: #333;text-align:left;">
+                                        <div style="text-align:center;">
+                                            <img style="display: initial;height: 33px;margin: 0px 0px 4px;" src="<?php echo $urlImagenes.'scotia_90X40.jpg';?>">
+                                        </div>
+
+                                        <p  style="margin-bottom: 7px;margin: 0 0 10px;"><b>1.Pagar en Scotiaenlínea del banco Scotiabank:</b></p>
+                                        <ul style="margin-left: 20px;margin-top: 0;margin-bottom: 10px;list-style: initial;">
+                                            <li>Selecciona “Pagos –Otras Instituciones” o “Buscar empresas”: busca <strong>SeguriPago</strong>.</li>
+                                            <li>Indica el número de referencia: <strong>Código de SEGURIPAGO: <?php print $_GET['codSeguripago']; ?></strong></li>
+                                            <li>Verifica el importe y ejecuta el pago</li>
+                                        </ul>
+
+                                        <p  style="margin-bottom: 7px;margin: 0 0 10px;"><b>2. Pagar en una Agencia o Cajero Express del Scotiabank:</b></p>
+                                        <ul style="margin-left: 20px;margin-top: 0;margin-bottom: 10px;list-style: initial;">
+                                            <li>Indica que deseas realizar el pago de <strong>SeguriPago Soles (BT 50/186)</strong></li>
+                                            <li>Comunica el <strong>Código de SEGURIPAGO: <?php print $_GET['codSeguripago']; ?></strong>.</li>
+                                            <li>Confirma el importe y recibe el voucher de pago</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="width:50%; float: right;">
+                                <div style="padding-left: 15px;padding-right: 15px;">
+                                    <div class="bankdetail f-xs marg-t" style="display:block;font-size: 11px;line-height: 1.4;color: #333;text-align:left;">
+                                        <div style="text-align:center;">
+                                            <img style="display: initial;height: 33px;margin: 0px 0px 4px;" src="<?php echo $urlImagenes.'bcp_90X40.jpg';?>">
+                                        </div>
+                                        <p style="margin-bottom: 7px;margin: 0 0 10px;"><b>1. En VíaBCP internet del BCP:</b></p>
+                                        <ul style="margin-left: 20px;margin-top: 0;margin-bottom: 10px;list-style: initial;">
+                                            <li>Selecciona la opción Pagos y transferencias, elije Pago de Servicios.</li>
+                                            <li>Luego, en “Empresas diversas” busca: <strong>SEGURIPAGO</strong> y selecciona <strong>SEGURIPAGO - SOLES</strong>.</li>
+                                            <li>Ingresa el <strong>Código de SEGURIPAGO: <?php print $_GET['codSeguripago']; ?></strong> y confirma el pago.</li>
+                                        </ul>
+                                        <p style="margin-bottom: 7px;margin: 0 0 10px;"><b>2. En una Agencia o Agente del BCP:</b></p>
+                                        <ul style="margin-left: 20px;margin-top: 0;margin-bottom: 10px;list-style: initial;">
+                                            <li>Indica que va a realizar un pago a la empresa: <strong>SEGURIPAGO</strong></li>
+                                            <li>Comunica el <strong>Código de SEGURIPAGO: <?php print $_GET['codSeguripago']; ?></strong></li>
+                                            <li>Confirma el importe y recibe el voucher</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                </div>
+            </div>
+
+    <div class="buttons-set">
+        <button type="button" class="button" title="<?php echo $this->__('Continue Shopping') ?>" onclick="window.location='<?php echo $this->getUrl() ?>'"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
+    </div>
+

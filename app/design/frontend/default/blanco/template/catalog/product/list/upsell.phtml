@@ -1,0 +1,69 @@
+<?php if(count($this->getItemCollection()->getItems())): ?>    
+<div class="block-related">
+    <h5><?php echo $this->__('You may also be interested in the following product(s)') ?></h5>
+    <br/><br/>
+    <div class="clear"></div>
+     <div class="related-rpoducts">
+    <div id="mycarousel" class="upsell carousel related-slider">
+        <div class="slider" >        
+        <?php $_i_related = -1; ?>
+        <?php foreach($this->getItemCollection()->getItems() as $_item): $_i_related++; ?>
+            <div class="slide <?php if((count($this->getItemCollection()->getItems()) == 4 && $_i_related == 3) || (count($this->getItemCollection()->getItems()) == ($_i_related + 1))) echo 'last' ?>">
+                <div class="product">
+                    <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(228) ?>" width="228" height="228" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" /></a>
+                    <div class="product-details">
+                        <p class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></p>
+                        <?php echo $this->getPriceHtml($_item, true, '-related') ?>
+                        <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                            <!--a href="<?php echo $this->getAddToWishlistUrl($_item) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a-->
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach ?>
+        </div>
+         <?php switch(count($this->getItemCollection()->getItems())){ case 4:?>  
+            <div class="related-3col-prev prev-rel">&nbsp;show in 3collumn version</div>
+            <div class="related-3col-next next-rel">&nbsp;show in 3collumn version</div>
+        <?php break; case 3: ?>
+            <div class="related-1col-prev prev-rel">&nbsp;show in 1collumn version</div>
+            <div class="related-1col-next next-rel">&nbsp;show in 1collumn version</div>         
+        <?php break; case 2: ?>
+            <div class="related-1col-prev prev-rel">&nbsp;show in 1collumn version</div>
+            <div class="related-1col-next next-rel">&nbsp;show in 1collumn version</div>  
+            <?php break; case 1: ?>
+            <div class="upsell-1col-prev prev-upsell">&nbsp;show in 1collumn version</div>
+            <div class="upsell-1col-next next-upsell">&nbsp;show in 1collumn version</div> 
+        <?php default: ?>
+            <div class="prev prev-rel" >&nbsp;</div>
+            <div class="next next-rel">&nbsp;</div>  
+        <?php break;} ?>   
+        <script type="text/javascript">decorateList('mini-products-list', 'none-recursive')</script>
+        <div class="clear"></div>
+    </div>
+    </div>
+    <?php if(count($this->getItemCollection()->getItems()) > 1): ?>
+        <script type="text/javascript">
+            jQuery('.upsell .prev-upsell').addClass('disabled');
+            jQuery('.upsell').iosSlider({
+                desktopClickDrag: true,
+                snapToChildren: true,
+                infiniteSlider: false,
+                navNextSelector: '.upsell .next-upsell',
+                navPrevSelector: '.upsell .prev-upsell',
+                lastSlideOffset: 3,
+                onFirstSlideComplete: function(){
+                    jQuery('.upsell .prev-upsell').addClass('disabled');
+                },
+                onLastSlideComplete: function(){
+                    jQuery('.upsell .next-upsell').addClass('disabled');
+                },
+                onSlideChange: function(){
+                    jQuery('.upsell .prev-upsell').removeClass('disabled');
+                    jQuery('.upsell .next-upsell').removeClass('disabled');
+                }
+            });               
+        </script>           
+    <?php endif; ?>    
+</div>
+<?php endif ?>

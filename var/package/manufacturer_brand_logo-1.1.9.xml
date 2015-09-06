@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<package>
+    <name>manufacturer_brand_logo</name>
+    <version>1.1.9</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Our manufacturer extension allows merchants to upload brand logos and display on product pages</summary>
+    <description>&lt;h3&gt;Magento Manufacturer Brand Logo Upload Extension&lt;/h3&gt;
+
+&lt;p&gt;Seamlessly upload brand logos and manage these from the admin panel of your magento store. &lt;/p&gt;
+
+&lt;p&gt;Our powerful magento manufacturer brand logo upload extension allows online merchants to easily upload brand logos, and display these on both the product pages as well as brand list pages. The extension can be seamlessly integrated with your online store in a hassle-free manner&lt;/p&gt;
+
+&lt;p&gt;You can easily download and install the magento manufacturer brand upload extension using magento connect. The magento extension is optimized in the best manner so that it does not affect the layout and functioning of your magento e-commerce website. As an online merchant, you need to remember that this magento extension automatically creates manufacturer attributes if it does not exist. You will have to assign the new attribute to the current attribute set which is used for creating products in the catalog. Once you add the option to that attribute, the extension will be available for brand image upload&lt;/p&gt;
+
+
+&lt;h3&gt;Extension Features&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Go to  Manufacturer &gt; Manage manufacture&lt;/li&gt;
+&lt;li&gt;    Quickly upload different manufacturer brands from admin panel&lt;/li&gt;
+&lt;li&gt;    Create a custom brand list page&lt;/li&gt;
+&lt;li&gt;    Display brands logo  in the most professional manner on product pages&lt;/li&gt;
+&lt;li&gt;    Categorize products according to different brands&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;strong&gt;Note &#x2013; In case you are using a custom magento theme, then you need to add the extension folder to the theme.Follow the path like this :- 
+app/design/frontend/&lt;custom_package&gt;/&lt;custom_theme&gt;/template/extension folder
+&lt;strong&gt;
+
+
+&lt;h3&gt;Guidelines for uploading manufacturers&#x2019; brand logo&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;First you need to go to Manufacturer and select Manage Manufacture&lt;/li&gt;
+&lt;li&gt;Next, you need to click on the Add Manufacture button&lt;/li&gt;
+&lt;li&gt;Once this is done you have to choose the brand and upload its logo&lt;/li&gt;
+&lt;li&gt;Now, just click on the save button and that&#x2019;s it by now must have successfully upload the brand logo &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Mentioned below is the code you need to use for displaying brand logo on product detail page&lt;/strong&gt;&lt;/p&gt;
+
+echo $this-&gt;getLayout()-&gt;createBlock('manufacturer/manufacturer')-&gt;setProduct($_product)-&gt;setTemplate('manufacturer/product_manufacturer.phtml')-&gt;toHtml();
+
+&lt;p&gt;
+The magento extension also provides a block which displays the entire brand logos list in one page. You can use this code wherever you want the list to be displayed.&lt;/p&gt;</description>
+    <notes>-Bug solving in manufacturer grid</notes>
+    <authors><author><name>Biztech</name><user>auto-converted</user><email>sales@biztechconsultancy.com</email></author></authors>
+    <date>2013-04-03</date>
+    <time>06:16:42</time>
+    <contents><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><file name="manufacturer.xml" hash="6dea17bcb6d2ae8f5fe686ef259b7a7b"/></dir></dir></dir></dir><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="manufacturer.xml" hash="efd84d71e74e164faff329425f26fab7"/></dir><dir name="template"><dir name="manufacturer"><file name="manufacturer.phtml" hash="04d01f699084f2bdf3b59ad5bfcf6d63"/><file name="manufacturer_resize.phtml" hash="57d1972f354f2bd3578b3cff924809b4"/><file name="product_manufacturer.phtml" hash="9935e24bfe395e8587bc10a666b1fbb4"/></dir></dir></dir></dir></dir></target><target name="magelocal"><dir name="Bc"><dir name="Bcall"><dir name="etc"><file name="adminhtml.xml" hash="882e9a46713c18966a894e9725cf86f0"/><file name="config.xml" hash="0e927d7e64aa08c9c9033d92f0136d49"/><file name="system.xml" hash="6badfb31e8b463d82a566552104b0a03"/></dir><dir name="Helper"><file name="Data.php" hash="89bd8d7b99721ceaaf31d039cd27a381"/></dir></dir><dir name="Manufacturer"><dir name="Block"><dir name="Adminhtml"><dir name="Grid"><dir name="Renderer1"><file name="Image.php" hash="1495538d3c82b6f24d481fff93fd1420"/></dir></dir><dir name="Manufacturer"><dir name="Edit"><dir name="Tab"><file name="Form.php" hash="327dde9831939364bb7af94a5c22794b"/></dir><file name="Form.php" hash="1320621adc17dbfb1b8983659a0a876c"/><file name="Tabs.php" hash="517ebac339c5972144ecbdfd5d36c84a"/></dir><file name="Edit.php" hash="5cf324603cbd50996ff6d988c2a5728e"/><file name="Grid.php" hash="7c94f4a00abb612ff2ffa7adc5d030b5"/></dir><file name="Manufacturer.php" hash="0e14f5e8413ba076e7cdce61a0d12c89"/></dir><file name="Manufacturer.php" hash="e3782cc49c8b2bb9f8c4725d829ca379"/></dir><dir name="controllers"><dir name="Adminhtml"><file name="ManufacturerController.php" hash="597d98a47cf085f42eb7e06ea0d08c0c"/></dir><file name="IndexController.php" hash="96cdf068cb8f579766eda5fb662532c2"/></dir><dir name="etc"><file name="adminhtml.xml" hash="3d6dbc767a0ec9ae673e0b3c46c29971"/><file name="config.xml" hash="293df6b168288f66eb4cb8abfdb17784"/></dir><dir name="Helper"><file name="Data.php" hash="9893648d93d798c3ad0a71a2be630c2e"/></dir><dir name="Model"><dir name="Mysql4"><dir name="Manufacturer"><file name="Collection.php" hash="b0ff7e1a7abe2cd2c612fdd4067df99f"/></dir><file name="Manufacturer.php" hash="f8e269187b2dedd3ed3affb582aaef9a"/></dir><file name="Manufacturer.php" hash="07a159edce18fa9be0969cc2295988df"/><file name="Status.php" hash="e702ab395b380899a636fc1ffa8e76eb"/></dir><dir name="sql"><dir name="manufacturer_setup"><file name="mysql4-install-0.1.0.php" hash="0af27a27cf7ec8feeb1d9e297c4ce726"/><file name="mysql4-upgrade-1.1.8-1.1.9.php" hash="9507b29fd573c0ed80adbe2eb107e96d"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Bc_Bcall.xml" hash="89be5607bd577a43766fdf8c17c03698"/><file name="Bc_Manufacturer.xml" hash="249a2c05a5a03d448b358c7708d286e7"/></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

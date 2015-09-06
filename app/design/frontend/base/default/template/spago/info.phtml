@@ -1,0 +1,26 @@
+<?php
+/**
+ * Magento
+ * @category    design
+ * @package     base_default
+ */
+?>
+
+<?php
+$_code = $this->getMethodCode();
+$orderId = ($this->getOrderId() == false) ? "" : $this->getOrderId();
+$resultado = $this->getEstadoSeguripago($orderId);
+?>
+
+<ul class="form-list" id="payment_form_<?php echo $_code ?>" style="padding: 0px;" >
+    <li>
+        <?php
+            if($resultado == ""){
+                echo "Seguripago";
+            }else{
+                echo $resultado;
+            }
+        ?>
+    </li>
+</ul>
+
