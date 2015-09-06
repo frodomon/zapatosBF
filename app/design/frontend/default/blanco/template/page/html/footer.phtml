@@ -3,75 +3,47 @@
     <div class="tick"></div>		
 </div>
 
-<div class="footer-container">
-    <div class="footer-stores hide-responsive">
-        <h2 class="footer-title">Nuestras tiendas</h2>
-    
-        <ul class="store-list clear-left">
-            <li>C.C. Jokey Plaza</li>
-            <li>C.C. Larcomar</li>
-            <li>Real Plaza Salaverry</li>
-            <li>Real Plaza Primavera</li>
-            <li>Real San Miguel</li>
-            <li>Plaza Lima Sur</li>
-        </ul>
-        <ul class="store-list">
-            <li>C.C. Mega Plaza</li>
-            <li>Real Plazza Arequipa</li>
-            <li>Real Plaza Cusco</li>
-            <li>Real Plaza Chiclayo</li>
-            <li>Real Plaza Piura</li>
-            <li>Real Plaza Trujillo</li>
-        </ul>
-    </div>
-    <div class="footer-social-container">
-        <div class="footer-social">
-            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('follow_us')->toHtml(); ?>
-            <div class="clear"></div>
+<div class="footer-container2">
+    <div class = "footer-top">
+        <div class = "footer-top-left">
+            <h2 class="footer-title2">Mi Cuenta</h2>
+        </div>
+        <div class = "footer-top-center">
+            <h2 class="footer-title2">Acerca Bruno Ferrini</h2>
+        </div>
+        <div class = "footer-top-right">
+            <h2 class="footer-title2">Servicio al Cliente</h2>
         </div>
     </div>
-    <div class="footer-social-container2">
-        <div class="footer-social2">
-            <h2 class="footer-title"><a href="https://www.facebook.com/brunoferrini.peru">Síguenos en facebook</a></h2>
-            <a class='facebook-bruno-ferrini' href="https://www.facebook.com/brunoferrini.peru" ></a>        
+    <div class = "footer-bottom">
+        <div class = "footer-bottom-left">
+            <ul class="footer-list">
+                <li>Registrate</li>
+                <li>Iniciar Sesión</li>
+                <li>Recuperar Contraseña</li>
+                <li>Pedidos</li>
+            </ul>
         </div>
-        <div class="footer-stores2 show-responsive">
-        <h2 class="footer-title">Nuestras tiendas</h2>
-    
-        <ul class="store-list2">
-            <li>C.C. Jokey Plaza</li>
-            <li>C.C. Larcomar</li>
-            <li>Real Plaza Salaverry</li>
-            <li>Real Plaza Primavera</li>
-            <li>Real San Miguel</li>
-            <li>Plaza Lima Sur</li>
-            <li>C.C. Mega Plaza</li>
-            <li>Real Plazza Arequipa</li>
-            <li>Real Plaza Cusco</li>
-            <li>Real Plaza Chiclayo</li>
-            <li>Real Plaza Piura</li>
-            <li>Real Plaza Trujillo</li>
-        </ul>
-    </div>
-        <div class="customer-support">
-            <h2 class="footer-title">Atención al cliente:</h2>
-            <p class="store-list2">(511)555-5555</p>
+        <div class = "footer-bottom-center">
+            <ul class="footer-list">
+                <li>Historia</li>
+                <li>Terminos y Condiciones</li>
+                <li>Nuestras Tiendas</li>
+                <li>Trabaja con Nosotros</li>
+            </ul>
+        </div>
+        <div class = "footer-bottom-right">
+            <ul class="footer-list">
+                <li>Politicas de Garantía y Devolución</li>
+                <li>Privacidad</li>
+                <li>Contactanos</li>
+                <li>Preguntas Frecuentes</li>
+                <li>Libro de Reclamaciones</li>
+            </ul>
         </div>
     </div>
-    
-    <div class="f-right">
-        <a class='payment-logo seguripago' href="https://www.seguripago.pe/" ></a>
-        <a class='payment-logo visa' href="http://www.visanet.com.pe/" ></a>
-        <a class='payment-logo master' href="http://www.mastercard.com/pe/" ></a>
-        <a class='payment-logo amex' href="https://www.americanexpress.com/" ></a>
-        <div class='payment-logo bcp'></div>
-        <div class='payment-logo bbva'></div>
-        <div class='payment-logo scotia'></div>
-    </div>
-        
      <div class="full-width footer-links">
         <?php echo $this->getCopyright() ?>&nbsp;&nbsp;
-        <?php echo $this->getChildHtml('cms_footer_links') ?>
     </div>
          
          

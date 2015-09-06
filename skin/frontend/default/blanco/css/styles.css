@@ -2394,6 +2394,19 @@ input.input-text:focus,textarea:focus { border-color: #000000; }
 .block-cart-header .btn-checkout { padding: 0 16%; }
 #shopping-cart-totals-table tbody tr:nth-child(2) td { font-weight: bold; color: #403C3C}
 
+/*New Footer*/
+.footer-container2 { width: 100%;}
+.footer-container2 .footer-top { width: 100%; margin:0 10%;}
+.footer-container2 .footer-top .footer-title2 {float: left; font-weight: bold; font-family: Verdana,helvetica,sans-serif; font-size: 14px; clear: both;}
+.footer-container2 .footer-top .footer-top-left,
+.footer-container2 .footer-top .footer-top-center,
+.footer-container2 .footer-top .footer-top-right {width: 33.33%; float: left; text-align: left;}
+.footer-container2 .footer-bottom { width: 100%;  margin:0 10%;}
+.footer-container2 .footer-bottom .footer-bottom-left,
+.footer-container2 .footer-bottom .footer-bottom-center,
+.footer-container2 .footer-bottom .footer-bottom-right {width: 33.33%; float: left; text-align: left;}
+.footer-container2 .footer-bottom .footer-list {float: left; margin:0; clear: right; font-size:12px;color:black;}
+.footer-container2 .footer-links {text-align: center;}
 /* -------------------------------------------------- */
 /*	Media Queries
 /* -------------------------------------------------- */
@@ -2782,6 +2795,7 @@ input.input-text:focus,textarea:focus { border-color: #000000; }
     .footer-social-container2 .customer-support{width:100%;float: left; text-align: center;}
     .footer-social-container2 .customer-support .footer-title {float:left; margin-top:10px;}
     .footer-social-container2 .customer-support .store-list2 {float:left;clear:both;}
+    
 }
 	
 
