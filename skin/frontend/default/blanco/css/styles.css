@@ -2930,3 +2930,28 @@ input.input-text:focus,textarea:focus { border-color: #000000; }
    height: auto;
    width: 100%;
 }
+
+
+.col2-left-layout .col-main {
+    max-width: 100% !important;
+}
+
+#nav .chield li.level2 {
+    float: none;
+}
+
+#nav .chield li.level1 {
+    height : auto;
+}
+
+#nav .chield li.level0 {
+    width : auto;
+}
+
+#nav .level0.chield {
+    width: 100%;
+    padding: 20px 0px 15px 15px;
+    margin-top: 1px;
+    border: 1px solid #000 !important;
+    border-top: 4px solid #000 !important;
+}
