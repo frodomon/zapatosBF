@@ -3,8 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/alfredo/Projects/BrunoFerrini/app/design/frontend/default/blanco/template/page/html/footer.phtml</file>
-            <file>file:/home/alfredo/Projects/BrunoFerrini/skin/frontend/default/blanco/css/styles.css</file>
+            <file>file:/Users/apple/code/zapatosBF/skin/frontend/default/blanco/css/styles.css</file>
+            <file>file:/Users/apple/code/zapatosBF/app/design/frontend/default/blanco/template/catalog/product/view/addto.phtml</file>
+            <file>file:/Users/apple/code/zapatosBF/app/design/frontend/base/default/template/catalog/product/view.phtml</file>
+            <file>file:/Users/apple/code/zapatosBF/app/design/frontend/default/blanco/template/catalog/category/view.phtml</file>
+            <file>file:/Users/apple/code/zapatosBF/app/design/frontend/default/blanco/template/catalog/product/view.phtml</file>
+            <file>file:/Users/apple/code/zapatosBF/app/locale/es_ES/Mage_Catalog.csv</file>
+            <file>file:/Users/apple/code/zapatosBF/app/code/core/Mage/Catalog/controllers/Product/CompareController.php</file>
         </group>
     </open-files>
 </project-private>

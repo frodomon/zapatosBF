@@ -2061,7 +2061,7 @@ label.required:after, span.required:after {content: ' *';color: #df280a;font-wei
 .send-friend .form-list li p:after { display:block; content:"."; clear:both; font-size:0; line-height:0; height:0; overflow:hidden; }
 /* ======================================================================================= */
 
-.home-text { background: white; float: left; position: relative; margin: 0 18px 15px 0; width: 450px; }
+.home-text { background: white; float: left; position: relative; margin: 0 0 15px 0; width: 390px; }
 .home-text img {max-width: 100%; }
 .home-text h1 { color:#090909; border-bottom: 1px solid #9a9a9a; padding-bottom:15px; }
 .home-text p { border-top: 1px solid #e6e6e6; padding-top:15px;}
@@ -2256,13 +2256,14 @@ right { float: right; }
 
 /*Header specifics*/
 
-.nav-container li { float: left; margin-left: 12px; height: 15px; padding: 7px 9px; border-color: transparent transparent #000; border-width: 1px; border-style: solid; -webkit-transition: border-color 0.2s ease; -moz-transition: border-color 0.2s ease; -o-transition: border-color 0.2s ease; transition: border-color 0.2s ease; margin-bottom: -0.5px; }
+.nav-container li { float: left; margin-left: 12px; height: 15px; padding: 7px 9px; border-color: transparent transparent transparent; border-width: 1px; border-style: solid; -webkit-transition: border-color 0.2s ease; -moz-transition: border-color 0.2s ease; -o-transition: border-color 0.2s ease; transition: border-color 0.2s ease; margin-bottom: -0.5px; background-color : transparent !important; }
 .center-container{ width: 1000px; margin: 0 auto; }
 .page .header-container { width: 95%; padding: 0 2.5%; margin: 0 auto; }
 .main-container {  width: 1000px; margin: 0 auto; }
 .iosSlider { width: 40% !important; height: 400px; float: left !important; }
-.header-list-container{ float: left; margin-right: 40px; }
+.header-list-container{ float: left; margin-right: 20px; width: 150px;}
 .header-list-container ul { list-style: none;}
+.header-list-container ul li ul{ list-style: none;}
 .header-list-container li { color: black; }
 .top-banner-holder{ float: left; margin-left: 20px; width: 0; }
 .home-section-separation { float: left; padding: 4px 15px; margin: 13px 0 0 20px; border-bottom: 0; }
@@ -2906,4 +2907,8 @@ input.input-text:focus,textarea:focus { border-color: #000000; }
     .footer-container2 .footer-top .footer-top-center,
     .footer-container2 .footer-top .footer-top-right { width:100%; clear:both; }
 
+}
+
+.discount-line, #discount-coupon-form{
+    display : none;
 }

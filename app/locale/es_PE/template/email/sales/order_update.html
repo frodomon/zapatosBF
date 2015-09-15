@@ -23,7 +23,7 @@
                 <tr>
                     <td class="action-content">
                         <h1>{{htmlescape var=$order.getCustomerName()}},</h1>
-                        <p>Your order <span class="no-link">#{{var order.increment_id}}</span> has been updated to: <strong>{{var order.getStatusLabel()}}</strong></p>
+                        <p>Su orden <span class="no-link">#{{var order.increment_id}}</span> ha sido actualizada a: <strong>{{var order.getStatusLabel()}}</strong></p>
                         {{if comment}}
                         <table cellspacing="0" cellpadding="0" class="message-container">
                             <tr>
@@ -31,11 +31,11 @@
                             </tr>
                         </table>
                         {{/if}}
-                        <p>You can check the status of your order by <a href="{{store url="customer/account/"}}">logging into your account</a>.</p>
+                        <p>Puede revisar el estado de su orden en <a href="{{store url="customer/account/"}}">ingresando a su cuenta</a>.</p>
                         <p>
-                            If you have any questions, please feel free to contact us at
+                            Si tiene otras consultas, no dude en escribirnos a:
                             <a href="mailto:{{var store_email}}">{{var store_email}}</a>
-                            {{depend store_phone}} or by phone at <a href="tel:{{var phone}}">{{var store_phone}}</a>{{/depend}}.
+                            {{depend store_phone}} o por teléfono a <a href="tel:{{var phone}}">{{var store_phone}}</a>{{/depend}}.
                         </p>
                     </td>
                 </tr>

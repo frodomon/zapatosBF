@@ -7,7 +7,7 @@
 <script type="text/javascript">
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
 </script>
-<a class="back-to" href="javascript: history.go(-1)"><?php echo $this->__('Return to Previous Page') ?></a>
+<a class="back-to" href="javascript: history.go(-1)"><?php echo $this->__('Regresar a la páina anterior') ?></a>
         
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
 <div class="product-view layout_<?php echo $_layout ?>">
@@ -34,13 +34,13 @@
                 <?php if($_product->getTypeId() != 'bundle'): ?>
                     <?php echo $this->getPriceHtml($_product) ?>
                 <?php else: ?>
-                    <?php echo $this->__('Product code:').'<strong>'.$_product->getId().'</strong>'; ?>
+                    <?php echo $this->__('Código de producto:').'<strong>'.$_product->getId().'</strong>'; ?>
                     <?php echo $this->getChildHtml('product_type_data') ?>
                 <?php endif;?>
                 
                 <div class="addtocont">
                     <?php if($_product->getTypeId() != 'bundle'): ?>
-                        <span class="product-code"><?php echo $this->__('Product code:').' <strong>'.$_product->getId().'</strong>'; ?></span>
+                        <span class="product-code"><?php echo $this->__('Código de producto:').' <strong>'.$_product->getId().'</strong>'; ?></span>
                         <?php echo $this->getChildHtml('product_type_data') ?>
                     <?php endif;?>
                     <?php //echo $this->getLayout()->createBlock('cms/block')->setBlockId('productview')->toHtml(); ?>
@@ -49,7 +49,7 @@
                 <?php echo $this->getTierPriceHtml() ?>
                 <?php if ($_product->getShortDescription()):?>
                     <div class="short-description">
-                        <p><?php echo $this->__('Quick Overview:') ?></p>
+                        <p><?php echo $this->__('Descripción breve:') ?></p>
                         <div class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
                     </div>
                 <?php endif;?>
