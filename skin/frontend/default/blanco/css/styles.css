@@ -2111,6 +2111,7 @@ a.readmore:hover { text-decoration: underline; color:white; background: #ccc !im
     padding:0 15px 0 53px;
     line-height:50px;
     background: url(../images/menu-icon.png) no-repeat 15px center;
+    background-color: #000;
     color:white;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
@@ -2418,7 +2419,7 @@ input.input-text:focus,textarea:focus { border-color: #000000; }
 @media only screen and (max-width: 959px) {
 
     .nav-demo-block, .nav_block{display: none;}
-    .et-menu-title{display: none;}
+    .et-menu-title{display: block;}
     .et-menu-title::selection, .et-mobile-menu::selection, .nav-container::selection{background-color: transparent !important;}
 
     #nav{display: none;}
@@ -2811,7 +2812,7 @@ input.input-text:focus,textarea:focus { border-color: #000000; }
 
     .ratings .rating-box{margin-right: 10px;}
 
-    .form-search input.input-text{width: 100px;}
+    .form-search input.input-text{width: 100%;}
     .opc .step{padding:15px 20px;}
     .form-list .field{width: 100%;}
     .form-list select{width: 99%;}
@@ -2911,4 +2912,21 @@ input.input-text:focus,textarea:focus { border-color: #000000; }
 
 .discount-line, #discount-coupon-form{
     display : none;
+}
+
+.et-mobile-menu li > a {
+    display: block;
+    line-height: 45px;
+    padding: 0px 10px;
+    font-size: 16px;
+    text-transform: uppercase;
+    background: #FFF none repeat scroll 0% 0%;
+    border-top: 1px solid #EFEFEF;
+}
+
+.nav-container .et-mobile-menu li {
+   margin: 0 0;
+   padding: 0 0;
+   height: auto;
+   width: 100%;
 }
