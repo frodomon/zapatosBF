@@ -2955,3 +2955,7 @@ input.input-text:focus,textarea:focus { border-color: #000000; }
     border: 1px solid #000 !important;
     border-top: 4px solid #000 !important;
 }
+
+.pages li a:hover, .pages .current, button.button:hover, .tintButton:hover, .footer-container .form-subscribe button.button, .add-to-cart button.button, #added a:hover, button.button.btn-checkout, .opc .active .step-title, a.readmore, #added a, .quantity_box_button_up:hover, .quantity_box_button_down:hover, .left-categorys-container a:hover, .home-text a.readmore, .box-tags button.button, .tintButton, .blocklist > li > ul > li:hover, #nav > li > ul > li ul > li:hover, .block-account .block-title, .block.left-categorys .block-title, .et-menu-title {
+    background-color: #000 !important;
+}
